@@ -9,7 +9,7 @@
 <html>
 <head>
     <title>Title</title>
-    <h2>save.jsp 잘가야되 ..</h2>
+    <h2>save.jsp </h2>
 </head>
 <body>
 

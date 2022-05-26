@@ -15,7 +15,7 @@ public class MemberController {
  @Autowired
   private MemberService memberService;
 
-    @GetMapping("save")
+   @GetMapping
     //회원가입 화면
      public String saveForm(){return "memberPages/save";}
 

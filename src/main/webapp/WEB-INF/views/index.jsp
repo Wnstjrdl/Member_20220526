@@ -17,6 +17,9 @@
         const  loginForm =()=>{
            location.href="/member/login"
        }
+       const loginForm = () => {
+         location.href="/member/findAll"
+       }
 
     </script>
 </head>

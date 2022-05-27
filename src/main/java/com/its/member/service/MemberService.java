@@ -1,6 +1,7 @@
 package com.its.member.service;
 
 import com.its.member.dto.MemberDTO;
+import com.its.member.dto.PageDTO;
 import com.its.member.repository.MemberRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -8,6 +9,7 @@ import org.springframework.web.multipart.MultipartFile;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.List;
 
 @Service
 public class MemberService {
@@ -41,5 +43,14 @@ public class MemberService {
     public MemberDTO login(MemberDTO memberDTO) {
        MemberDTO loginMember= memberRepository.login(memberDTO);
         return  loginMember;
+    }
+
+    private static final int PAGE_LIMIT=5;
+    private static final int BLOCK_LIMIT=3;
+
+    public List<MemberDTO> findAllList(int page) {
+    }
+
+    public PageDTO findAll(int page) {
     }
 }

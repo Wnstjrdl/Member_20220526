@@ -12,4 +12,9 @@ public class MemberRepository {
     private SqlSessionTemplate sql;
     public int save(MemberDTO memberDTO) {return sql.insert("Member.save",memberDTO); }
 
+
+    public String duplicateCheck(String memberId) {
+        return sql.selectOne("Member.duplicate",memberId);
+    }
 }
+

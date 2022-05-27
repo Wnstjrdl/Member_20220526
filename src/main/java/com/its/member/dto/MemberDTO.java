@@ -4,6 +4,7 @@ import lombok.Data;
 import org.springframework.web.multipart.MultipartFile;
 
 @Data
+
 public class MemberDTO {
    private Long id;
    private String memberId;
@@ -11,7 +12,7 @@ public class MemberDTO {
    private String memberName;
    private String memberEmail;
    private String memberMobile;
-   private MultipartFile boardFile;
-   private String boardFileName;
+   private MultipartFile memberFile;
+   private String memberFileName;
 
 }

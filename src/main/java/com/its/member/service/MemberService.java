@@ -11,6 +11,7 @@ import java.io.IOException;
 
 @Service
 public class MemberService {
+
     @Autowired
     private MemberRepository memberRepository;
 
@@ -35,5 +36,10 @@ public class MemberService {
         }else{
             return  "no";
         }
+    }
+
+    public MemberDTO login(MemberDTO memberDTO) {
+       MemberDTO loginMember= memberRepository.login(memberDTO);
+        return  loginMember;
     }
 }

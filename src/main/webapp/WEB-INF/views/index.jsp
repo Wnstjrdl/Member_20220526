@@ -12,13 +12,13 @@
     <link rel="stylesheet" href="/resources/css/bootstrap.min.css">
     <script>
        const saveForm = () => {
-         location.href="/member/save"
+         location.href="/member/save";
        }
         const  loginForm =()=>{
-           location.href="/member/login"
+           location.href="/member/login";
        }
-       const loginForm = () => {
-         location.href="/member/findAll"
+       const  paging= () => {
+         location.href="/board/paging";
        }
 
     </script>
@@ -27,6 +27,6 @@
 <h2>index.jsp</h2>
 <button class="btn btn-primary" onclick="saveForm()">회원가입</button>
 <button class="btn btn-primary" onclick="loginForm()">로그인</button>
-<button class="btn btn-primary" onclick="findAll()">글목록</button>
+<button class="btn btn-primary" onclick="paging()">글목록</button>
 </body>
 </html>

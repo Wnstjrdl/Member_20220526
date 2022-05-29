@@ -9,7 +9,9 @@ import org.springframework.web.multipart.MultipartFile;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 @Service
 public class MemberService {
@@ -45,12 +47,5 @@ public class MemberService {
         return  loginMember;
     }
 
-    private static final int PAGE_LIMIT=5;
-    private static final int BLOCK_LIMIT=3;
 
-    public List<MemberDTO> findAllList(int page) {
-    }
-
-    public PageDTO findAll(int page) {
-    }
 }

@@ -50,16 +50,18 @@ public class MemberController {
     @PostMapping("/login")
     // 로그인 처리 구현
     public  String login(@ModelAttribute MemberDTO memberDTO, Model model ,HttpSession session){
-       MemberDTO loginMember= memberService.login(memberDTO);
+        System.out.println("memberDTO = " + memberDTO );
+      MemberDTO loginMember= memberService.login(memberDTO);
+        System.out.println("loginMember = " + loginMember);
        if(loginMember != null){
             model.addAttribute("loginMember",loginMember);
-            session.setAttribute("loginMemberId",loginMember.getMemberId());
-           session.setAttribute("loginId", loginMember.getId());
+           session.setAttribute("loginMemberId",loginMember.getMemberId());
+          session.setAttribute("loginId", loginMember.getId());
 
-           return "boardPages/PagingList";
+           return "redirect:/board/paging";
        }else {
-           return  "memberPages/login";
-       }
+          return  "memberPages/login";
+      }
 
 
     }

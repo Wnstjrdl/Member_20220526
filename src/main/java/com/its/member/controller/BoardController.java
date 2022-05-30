@@ -1,6 +1,7 @@
 package com.its.member.controller;
 
 import com.its.member.dto.BoardDTO;
+import com.its.member.dto.MemberDTO;
 import com.its.member.dto.PageDTO;
 import com.its.member.service.BoardService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -8,6 +9,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
+import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.util.List;
 
@@ -16,6 +18,9 @@ import java.util.List;
 public class BoardController {
     @Autowired
     private BoardService boardService;
+
+
+
 
     @GetMapping("/save")
     public String saveForm(){return "boardPages/save";}

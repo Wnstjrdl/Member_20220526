@@ -18,9 +18,9 @@
     <h2>save.jsp</h2>
     <div class="py-5 text-center">
 
-        <form action="/board/saveFile" method="post" enctype="multipart/form-data">  <!--파일첨부multipart/form-data-->
-            <input class="form-control mb-2" type="text" name="boardTitle" placeholder="제목">
-            <input class="form-control mb-2"  type="text" name="id" placeholder="작성자" readonly>
+        <form action="/board/save" method="post" enctype="multipart/form-data">
+            <input class="form-control mb-2" type="text" name="boardTitle" placeholder="제목" >
+            <input class="form-control mb-2"  type="text" name="id" placeholder="작성자" >
             <textarea class="form-control" name="boardContents" rows="5" cols="10"></textarea>
             첨부파일:<input type="file" name="boardFile">
             <input class="btn btn-primary" type="submit" value="글작성">

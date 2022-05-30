@@ -1,6 +1,7 @@
 package com.its.member.service;
 
 import com.its.member.dto.BoardDTO;
+import com.its.member.dto.MemberDTO;
 import com.its.member.dto.PageDTO;
 import com.its.member.repository.BoardRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -59,4 +60,5 @@ private BoardRepository boardRepository;
         }
         boardRepository.save(boardDTO);
     }
+
 }

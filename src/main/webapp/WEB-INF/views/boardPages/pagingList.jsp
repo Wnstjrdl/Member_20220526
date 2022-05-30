@@ -1,4 +1,4 @@
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+
 <%--
   Created by IntelliJ IDEA.
   User: adwin21-175
@@ -7,7 +7,7 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
 <html>
 <head>
@@ -15,6 +15,8 @@
     <link rel="stylesheet" href="/resources/css/bootstrap.min.css">
 </head>
 <body>
+<jsp:include page="../layout/header.jsp" flush="false"></jsp:include>
+
 <h2>pagingList.jsp</h2>
     <div class="container ">
         <table  class="table">
@@ -27,17 +29,18 @@
                 <th>조회수</th>
                 <td>첨부파일</td>
             </tr>
+
+
+
+
         </table>
-
-
-
     </div>
     <div class="container">
         <ul class="pagination justify-content-center">
             <c:choose>
                 <c:when test="${paging.page<=1}">
                     <li class="page-item disabled">
-                        <a class="page-link">[이전}</a>
+                        <a class="page-link">[이전]</a>
                     </li>
                 </c:when>
                 <c:otherwise>
@@ -63,7 +66,7 @@
                 <c:choose>
                     <c:when test="${paging.page>=paging.maxPage}">
                         <li class="page-item disabled">
-                            <a class="page-link">다음</a>
+                            <a class="page-link">[다음]</a>
                         </li>
                     </c:when>
                     <c:otherwise>

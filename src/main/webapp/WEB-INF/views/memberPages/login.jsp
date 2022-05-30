@@ -14,7 +14,7 @@
 <body>
         <form action="/member/login" method="post">
     <input type="text" name="memberId"  placeholder="아이디를 입력하세요">
-    <input type="text" name="memberPassWord"  placeholder="비밀번호를 입력하세요">
+    <input type="text" name="memberPassword"  placeholder="비밀번호를 입력하세요">
     <input type="submit" value="로그인">
         </form>
 </body>

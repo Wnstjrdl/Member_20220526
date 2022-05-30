@@ -15,8 +15,10 @@
        <div class="container">
 
            <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
-               <li><a href="/" >돌아가기</a> </li>
-               <li><a href="/board/save" >글쓰기</a> </li>
+               <li><a href="/"   class="nav-link px-2 text-primary">인덱스로돌아가기</a> </li>
+               <li><a href="/board/save"   class="nav-link px-2 text-primary">글쓰기</a> </li>
+               <li><a href="/member/logout"  class="nav-link px-2 text-white">로그아웃</a> </li>
+
 
 
            </ul>

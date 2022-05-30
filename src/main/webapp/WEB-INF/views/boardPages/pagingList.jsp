@@ -18,6 +18,9 @@
 <jsp:include page="../layout/header.jsp" flush="false"></jsp:include>
 
 <h2>pagingList.jsp</h2>
+로그인 회원 정보:${loginMember}<br />
+세션에 담은 memberId:${sessionScope.loginMemberId}<br />
+세션에 담은 id:${sessionScope.loginId}<br />
     <div class="container ">
         <table  class="table">
             <tr>

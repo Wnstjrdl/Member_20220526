@@ -38,4 +38,6 @@ public class BoardController {
         model.addAttribute("paging", paging);
         return "boardPages/pagingList";
     }
+
+
 }

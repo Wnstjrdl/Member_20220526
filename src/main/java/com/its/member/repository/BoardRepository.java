@@ -28,5 +28,7 @@ public class BoardRepository {
     public void save(BoardDTO boardDTO) {sql.insert("Board.save",boardDTO);}
 
 
+    public BoardDTO findById(Long id){ return sql.selectOne("Board.findById",id);}
+
 
 }

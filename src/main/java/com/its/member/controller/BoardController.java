@@ -20,18 +20,19 @@ public class BoardController {
     private BoardService boardService;
 
 
-
-
     @GetMapping("/save")
-    public String saveForm(){return "boardPages/save";}
+    public String saveForm() {
+        return "boardPages/save";
+    }
 
     @PostMapping("/save")
     public String save(@ModelAttribute BoardDTO boardDTO) throws IOException {
         boardService.save(boardDTO);
         return "redirect:/board/paging";
     }
+
     @GetMapping("/paging")
-    public String paging(@RequestParam(value ="page",required = false,defaultValue = "1")int page, Model model){
+    public String paging(@RequestParam(value = "page", required = false, defaultValue = "1") int page, Model model) {
         List<BoardDTO> boardList = boardService.pagingList(page);
         PageDTO paging = boardService.paging(page);
         model.addAttribute("boardList", boardList);
@@ -39,5 +40,13 @@ public class BoardController {
         return "boardPages/pagingList";
     }
 
+    @GetMapping("/detail")
+    public String findById(@RequestParam("id") Long id, Model model,
+                           @RequestParam(value = "page", required = false, defaultValue = "1") int page) {
+        BoardDTO boardDTO = boardService.findById(id);
+        model.addAttribute("board", boardDTO);
+        model.addAttribute("page", page);
+        return "boardPages/detail";
+    }
 
 }

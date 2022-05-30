@@ -12,6 +12,8 @@ import java.util.Map;
 @Repository
 public class BoardRepository {
 
+
+
     @Autowired
     private SqlSessionTemplate sql;
     public List<BoardDTO> pagingList(Map<String, Integer> pagingParam) {
@@ -24,6 +26,7 @@ public class BoardRepository {
 
 
     public void save(BoardDTO boardDTO) {sql.insert("Board.save",boardDTO);}
+
 
 
 }

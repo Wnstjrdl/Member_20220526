@@ -63,7 +63,6 @@ public class MemberController {
           return  "memberPages/login";
       }
 
-
     }
     //로그아웃
     @GetMapping("/logout")

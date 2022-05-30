@@ -8,6 +8,7 @@
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 
 <html>
 <head>
@@ -18,9 +19,7 @@
 <jsp:include page="../layout/header.jsp" flush="false"></jsp:include>
 
 <h2>pagingList.jsp</h2>
-로그인 회원 정보:${loginMember}<br />
-세션에 담은 memberId:${sessionScope.loginMemberId}<br />
-세션에 담은 id:${sessionScope.loginId}<br />
+
     <div class="container ">
         <table  class="table">
             <tr>
@@ -32,10 +31,22 @@
                 <th>조회수</th>
                 <td>첨부파일</td>
             </tr>
+        <c:forEach items="${boardList}" var="board">
+            <!--게시글조회 -->
+            <tr>
+                <td>${board.id}</td>
+                <td>${board.boardWriter}</td>
+                <td>${board.boardTitle}</td>
+                <td>${board.boardContents}</td>
+                <td><fmt:formatDate pattern="yyyy-MM-dd hh:mm:ss"
+                                    value="${board.boardCreatedDate}"></fmt:formatDate></td>
+                <td>${board.boardHits}</td>
+                <td>${board.boardFileName}</td>
 
 
 
-
+            </tr>
+        </c:forEach>
         </table>
     </div>
     <div class="container">

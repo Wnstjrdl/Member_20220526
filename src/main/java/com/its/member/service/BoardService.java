@@ -21,7 +21,7 @@ private BoardRepository boardRepository;
     private static final int PAGE_LIMIT = 5;
     private static final int BLOCK_LIMIT = 3;
     public List<BoardDTO> pagingList(int page) {
-        // 1페이지 요청 =>
+     
         int pagingStart = (page-1) * PAGE_LIMIT;
         Map<String, Integer> pagingParam = new HashMap<>();
         pagingParam.put("start", pagingStart);
@@ -63,5 +63,9 @@ private BoardRepository boardRepository;
 
 
     public BoardDTO findById(Long id) {return boardRepository.findById(id);
+    }
+
+
+    public void delete(Long id) {boardRepository.delete(id);
     }
 }

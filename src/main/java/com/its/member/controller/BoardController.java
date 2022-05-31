@@ -21,17 +21,20 @@ public class BoardController {
 
 
     @GetMapping("/save")
+    // 게시글 화면 요청
     public String saveForm() {
         return "boardPages/save";
     }
 
     @PostMapping("/save")
+    //게시글 작성처리
     public String save(@ModelAttribute BoardDTO boardDTO) throws IOException {
         boardService.save(boardDTO);
         return "redirect:/board/paging";
     }
 
     @GetMapping("/paging")
+    //페이징 리스트목록
     public String paging(@RequestParam(value = "page", required = false, defaultValue = "1") int page, Model model) {
         List<BoardDTO> boardList = boardService.pagingList(page);
         PageDTO paging = boardService.paging(page);
@@ -41,6 +44,7 @@ public class BoardController {
     }
 
     @GetMapping("/detail")
+    //상세조회
     public String findById(@RequestParam("id") Long id, Model model,
                            @RequestParam(value = "page", required = false, defaultValue = "1") int page) {
         BoardDTO boardDTO = boardService.findById(id);
@@ -48,5 +52,10 @@ public class BoardController {
         model.addAttribute("page", page);
         return "boardPages/detail";
     }
-
+    // 글삭제처리
+    @GetMapping("/delete")
+    public String delete(@RequestParam("id")Long id){
+        boardService.delete(id);
+        return  "redirect:/board/paging";
+    }
 }

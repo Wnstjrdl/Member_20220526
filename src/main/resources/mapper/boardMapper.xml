@@ -10,6 +10,7 @@
     <select parameterType="java.util.HashMap" id="pagingList" resultType="board">select * from board_table order by id desc limit #{start}, #{limit} </select>
     <select id="count" resultType="int">select count(id) from board_table </select>
     <select parameterType="Long" id="findById" resultType="board">select * from board_table where id=#{id} </select>
+    <delete  parameterType="Long"   id="delete" >delete  from board_table where id=#{id} </delete>
 </mapper>
 
 

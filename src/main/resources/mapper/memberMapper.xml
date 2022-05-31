@@ -19,6 +19,7 @@
     <select id="findAll" resultType="member">
         select * from member_table
     </select>
+        <delete parameterType="Long" id="delete">delete from member_table where id=#{id}</delete>
 </mapper>
 
 

@@ -79,6 +79,12 @@ public class MemberController {
         model.addAttribute("memberList", memberDTOList);
         return "memberPages/admin";
     }
+    //회원 삭제
+    @GetMapping("/delete")
+    public String delete(@RequestParam("id")Long id){
+        memberService.delete(id);
+        return "redirect:/member/findAll";
+    }
 
 
 

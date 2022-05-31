@@ -17,12 +17,12 @@
     <h2>detail.jsp</h2>
 
 
-    ${board.id}<br/>
-    ${board.boardTitle}<br/>
-    ${board.boardWriter}<br/>
-    ${board.boardContents}<br/>
-    ${board.boardHits}<br/>
-    ${board.boardCreatedDate}<br/>
+  글번호 : ${board.id}<br/>
+   제목 :${board.boardTitle}<br/>
+   작성자: ${board.boardWriter}<br/>
+    내용:${board.boardContents}<br/>
+    조회수:${board.boardHits}<br/>
+    작성시간:${board.boardCreatedDate}<br/>
     <img src="${pageContext.request.contextPath}/upload/${board.boardFileName}"
          alt="" height="100" width="100"><br /><br />
 
@@ -34,5 +34,8 @@
 <a href="/board/delete?id=${board.id}">삭제</a>
 <a href="/board/update?id=${board.id}">업데이트</a>
     <a href="/">돌아가기</a>
+</c:if>
+<c:if test="${sessionScope.loginMemberId eq 'admin'}">
+    <a href="/board/delete?id=${board.id}">삭제</a>
 </c:if>
 </html>

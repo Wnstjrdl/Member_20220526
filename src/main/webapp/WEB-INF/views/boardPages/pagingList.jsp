@@ -18,7 +18,23 @@
 <body>
 <jsp:include page="../layout/header.jsp" flush="false"></jsp:include>
 
+
 <h2>pagingList.jsp</h2>
+    <div class="container mt-3">
+        <form action="/board/search" method="get">
+    <select name="searchType">
+        <option value="boardTitle">제목</option>
+        <option value="boardWriter">작성자</option>
+    </select>
+        <input type="text" name="q" placeholder="검색어입력">
+        <input type="submit"   value="검색">
+
+        </form>
+    </div>
+
+
+
+
 
     <div class="container ">
         <table  class="table">
@@ -29,10 +45,10 @@
                 <td>내용</td>
                 <th>작성시간</th>
                 <th>조회수</th>
-                <td>첨부파일</td>
+
             </tr>
         <c:forEach items="${boardList}" var="board">
-            <!--게시글조회 -->
+
             <tr>
                 <td>${board.id}</td>
                 <td>${board.boardWriter}</td>
@@ -41,7 +57,7 @@
                 <td><fmt:formatDate pattern="yyyy-MM-dd hh:mm:ss"
                                     value="${board.boardCreatedDate}"></fmt:formatDate></td>
                 <td>${board.boardHits}</td>
-                <td>${board.boardFileName}</td>
+
 
 
 

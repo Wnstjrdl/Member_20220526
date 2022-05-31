@@ -11,6 +11,7 @@
     <select id="count" resultType="int">select count(id) from board_table </select>
     <select parameterType="Long" id="findById" resultType="board">select * from board_table where id=#{id} </select>
     <delete  parameterType="Long"   id="delete" >delete  from board_table where id=#{id} </delete>
+    <update parameterType="board" id="update">update board_table set boardTitle=#{boardTitle}, boardContents=#{boardContents} where id=#{id} </update>
 </mapper>
 
 

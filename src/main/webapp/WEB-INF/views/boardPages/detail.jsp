@@ -32,5 +32,7 @@
 </body>
 <c:if test="${sessionScope.loginMemberId eq board.boardWriter}">
 <a href="/board/delete?id=${board.id}">삭제</a>
+<a href="/board/update?id=${board.id}">업데이트</a>
+    <a href="/">돌아가기</a>
 </c:if>
 </html>

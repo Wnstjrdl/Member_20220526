@@ -28,7 +28,6 @@
 
 
 
-
 </body>
 <c:if test="${sessionScope.loginMemberId eq board.boardWriter}">
 <a href="/board/delete?id=${board.id}">삭제</a>

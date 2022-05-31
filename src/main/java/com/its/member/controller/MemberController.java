@@ -23,9 +23,11 @@ public class MemberController {
 
  @Autowired
   private MemberService memberService;
- @Autowired
- private  BoardService boardService;
-   @GetMapping("/save")
+
+
+
+
+    @GetMapping("/save")
     //회원가입 화면
      public String saveForm(){return "memberPages/save";}
 
@@ -70,6 +72,16 @@ public class MemberController {
         session.invalidate();
         return "index";
     }
+    // 회원목록 조회
+    @GetMapping("/findAll")
+    public String findAll(Model model){
+        List<MemberDTO> memberDTOList = memberService.findAll();
+        model.addAttribute("memberList", memberDTOList);
+        return "memberPages/admin";
+    }
+
+
+
 
 
     }

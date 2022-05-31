@@ -48,5 +48,6 @@ public class MemberService {
     }
 
 
-
+    public List<MemberDTO> findAll() {return memberRepository.findAll();
+    }
 }

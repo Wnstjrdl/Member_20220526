@@ -1,9 +1,11 @@
 package com.its.member.controller;
 
 import com.its.member.dto.BoardDTO;
+import com.its.member.dto.CommentDTO;
 import com.its.member.dto.MemberDTO;
 import com.its.member.dto.PageDTO;
 import com.its.member.service.BoardService;
+import com.its.member.service.CommentService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -18,7 +20,8 @@ import java.util.List;
 public class BoardController {
     @Autowired
     private BoardService boardService;
-
+    @Autowired
+    private CommentService commentService;
 
     @GetMapping("/save")
     // 게시글 화면 요청
@@ -50,6 +53,9 @@ public class BoardController {
         BoardDTO boardDTO = boardService.findById(id);
         model.addAttribute("board", boardDTO);
         model.addAttribute("page", page);
+        //댓글 목록
+        List<CommentDTO> commentDTOList= commentService.findAll(id);
+        model.addAttribute("commentList",commentDTOList);
         return "boardPages/detail";
     }
     // 글삭제처리

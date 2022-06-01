@@ -13,7 +13,11 @@ public class CommentRepository {
     private SqlSessionTemplate sql;
 
 
+    public void save(CommentDTO commentDTO) {
+        sql.insert("Comment.save",commentDTO);
+    }
 
-
-
+    public List<CommentDTO> findAll(Long boardId) {
+        return  sql.selectList("Comment.findAll",boardId);
+    }
 }

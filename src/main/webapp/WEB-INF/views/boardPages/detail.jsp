@@ -8,9 +8,11 @@
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <html>
 <head>
     <title>Title</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
     <link rel="stylesheet" href="/resources/css/bootstrap.min.css">
 </head>
 <body>
@@ -26,7 +28,35 @@
     <img src="${pageContext.request.contextPath}/upload/${board.boardFileName}"
          alt="" height="100" width="100"><br /><br />
 
+    <div class="container mt-5">
+        <div id="comment-write" class="input-group mb-3">
+            <div class="form-floating">
+                <input type="text" id="commentWriter" class="form-control" placeholder="작성자">
+                <label for="commentWriter">작성자</label>
+            </div>
+            <button id="comment-write-btn" class="btn btn-primary">댓글작성</button>
+        </div>
 
+
+
+    <div id="comment-list">
+        <table class="table">
+            <tr>
+                <th>댓글번호</th>
+                <th>작성자</th>
+                <th>작성시간</th>
+            </tr>
+            <c:forEach items="${commentList}" var="comment">
+                <tr>
+                    <td>${comment.id}</td>
+                    <td>${comment.commentWriter}</td>
+                    <td><fmt:formatDate pattern="yyyy-MM-dd hh:mm:ss" value="${comment.commentCreatedDate}"></fmt:formatDate></td>
+                </tr>
+            </c:forEach>
+        </table>
+    </div>
+
+    </div>
 
 </body>
 <c:if test="${sessionScope.loginMemberId eq board.boardWriter}">
@@ -37,4 +67,40 @@
 <c:if test="${sessionScope.loginMemberId eq 'admin'}">
     <a href="/board/delete?id=${board.id}">삭제</a>
 </c:if>
+<script>
+    $("#comment-write-btn").click(function () {
+        const cWriter=document.getElementById("commentWriter").value;
+        const boardId='${board.id}';
+          $.ajax({
+              type:"post",
+              url:"/comment/save",
+              data:{
+                  "commentWriter":cWriter,
+                  "boardId":boardId,
+
+              },
+              data_type:"json",
+              success: function (result){
+
+                  let output = "<table class='table'>";
+                  output += "<tr><th>댓글번호</th>";
+                  output += "<th>작성자</th>";
+                  output += "<th>작성시간</th></tr>";
+                for (let i in result ){
+                    output +="<tr>";
+                    output += "<td>"+result[i].id+"</td>";
+                    output += "<td>"+result[i].commentWriter+"</td>";
+                    output += "<td>"+moment(result[i].commentCreatedDate).format("YYYY-MM-DD HH:mm:ss")+"</td>";
+                    output +="</tr>";
+                }
+                    output += "</table>";
+                document.getElementById('comment-list').innerHTML=output;
+                document.getElementById('commentWriter').value='';
+              },
+
+                  
+          });
+
+    });
+</script>
 </html>

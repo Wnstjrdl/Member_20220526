@@ -35,7 +35,6 @@
                         <td>${member.memberEmail}</td>
                         <td>${member.memberMobile}</td>
                         <td><a href="/member/delete?id=${member.id}">삭제</a></td>
-
                     </tr>
                 </c:forEach>
 

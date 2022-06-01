@@ -33,6 +33,7 @@ public class BoardController {
     //게시글 작성처리
     public String save(@ModelAttribute BoardDTO boardDTO) throws IOException {
         boardService.save(boardDTO);
+        System.out.println("boardDTO = " + boardDTO);
         return "redirect:/board/paging";
     }
 
@@ -51,6 +52,7 @@ public class BoardController {
     public String findById(@RequestParam("id") Long id, Model model,
                            @RequestParam(value = "page", required = false, defaultValue = "1") int page) {
         BoardDTO boardDTO = boardService.findById(id);
+
         model.addAttribute("board", boardDTO);
         model.addAttribute("page", page);
         //댓글 목록
@@ -85,4 +87,5 @@ public class BoardController {
         model.addAttribute("boardList",searchList);
         return  "boardPages/list";
     }
+
 }

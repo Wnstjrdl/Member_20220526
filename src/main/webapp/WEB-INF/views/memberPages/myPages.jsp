@@ -26,7 +26,7 @@
     회원 전화번호:${member.memberMobile}<br/>
     <img src="${pageContext.request.contextPath}/upload/${member.memberFileName}"
          alt="" height="100" width="100"><br /><br />
-
+   <button onclick="memberUpdate()">수정</button>
 
     </table>
 
@@ -36,4 +36,9 @@
 
 </div>
 </body>
+<script>
+    const memberUpdate = () => {
+      location.href="/member/passwordCheck?id=${member.id}";
+    }
+</script>
 </html>

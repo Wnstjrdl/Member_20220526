@@ -91,6 +91,7 @@ public class MemberController {
 
 
     @GetMapping("/detail")
+    //마이페이지
     public   String findById(@RequestParam("id") Long id, Model model) {
         System.out.println("id = " + id);
 
@@ -99,6 +100,26 @@ public class MemberController {
         model.addAttribute("member", memberDTO);
 
         return "memberPages/myPages";
+    }
+    //비밀번호 체크
+    @GetMapping("/passwordCheck")
+    public String passwordCheck(@RequestParam("id") Long id,Model model){
+        MemberDTO memberDTO= memberService.findById(id);
+        model.addAttribute("member",memberDTO);
+        return "memberPages/passwordCheck";
+    }
+    //수정화면
+    @GetMapping("/update")
+    public String updateForm(@RequestParam("id") Long id, Model model){
+        MemberDTO memberDTO= memberService.findById(id);
+        model.addAttribute("memberUpdate",memberDTO);
+        return  "memberPages/update";
+    }
+    //수정처리
+    @PostMapping("/update")
+    public String update(@ModelAttribute MemberDTO memberDTO){
+        memberService.update(memberDTO);
+        return  "redirect:/member/detail?id="+memberDTO.getId();
     }
 }
 

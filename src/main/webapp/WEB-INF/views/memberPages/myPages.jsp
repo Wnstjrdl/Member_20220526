@@ -14,7 +14,7 @@
 </head>
 
 <body>
-
+<link rel="stylesheet" href="/resources/css/bootstrap.min.css">
 <div  class="container">
     <h2>myPages.jsp</h2>
 
@@ -26,7 +26,8 @@
     회원 전화번호:${member.memberMobile}<br/>
     <img src="${pageContext.request.contextPath}/upload/${member.memberFileName}"
          alt="" height="100" width="100"><br /><br />
-   <button onclick="memberUpdate()">수정</button>
+   <button class="btn btn-primary" onclick="memberUpdate()">수정</button>
+    <a href="/" class="btn btn-primary stretched-link"  >돌아가기</a>
 
     </table>
 

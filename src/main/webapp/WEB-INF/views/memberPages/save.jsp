@@ -9,7 +9,7 @@
 <html>
 <head>
     <title>Title</title>
-    <link rel="stylesheet" href="/resources/css/bootstrap.min.css">
+  <link rel="stylesheet" href="/resources/css/bootstrap.min.css">
     <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
 
 </head>
@@ -21,10 +21,12 @@
     <form action="/member/save" method="post" enctype="multipart/form-data">
         <input class="form-control mb-2" type="text"  onblur="duplicateCheck()" id="memberId" name="memberId" placeholder="아이디">
         <span id="dup-check-result"></span>
-        <input class="form-control mb-2" type="text" name="memberPassword" placeholder="비밀번호를 입력하세요">
+        <input class="form-control mb-2" type="text"  id="memberPassword" name="memberPassword" placeholder="비밀번호를 입력하세요">
+        <div  id="pwCheck"></div>
         <input class="form-control mb-2" type="text" name="memberName" placeholder="이름를 입력하세요">
         <input class="form-control mb-2" type="text" name="memberEmail" placeholder="이메일를 입력하세요">
-        <input class="form-control mb-2" type="text" name="memberMobile" placeholder="전화번호를 입력하세요">
+        <input class="form-control mb-2" type="text" id="memberMobile" name="memberMobile" placeholder="전화번호를 입력하세요">
+        <div id="mobileCheck"></div>
         프로필사진을 등록해주세요:<input type="file" name="memberFile">
         <input class="btn btn-danger" type="submit" value="회원가입">
     </form>
@@ -52,11 +54,37 @@
           });
 
 
+
         }
 
+        const pwJ= /^[A-Za-z0-9]{4,12}$/;
 
+        $('#memberPassword').blur(function () {
+            if(pwJ.test($('#memberPassword').val())){
+                console.log('true');
+                $('#pwCheck').text('ok');
+                $('#pwCheck').css('color','green');
+            }else {
+                console.log('false');
+                $('#pwCheck').text('숫자 or 문자로만4~12자리입력');
+                $('#pwCheck').css('color','red');
 
+            }
 
+        });
+      const mobileJ = /^01([0|1|6|7|8|9]?)?([0-9]{3,4})?([0-9]{4})$/;
+            $('#memberMobile').blur(function (){
+                if(mobileJ.test($('#memberMobile').val())){
+                    console.log('true');
+                    $('#mobileCheck').text('ok');
+                    $('#mobileCheck').css('color','green');
+                }else {
+                    console.log('false');
+                    $('#mobileCheck')
+                    $('#mobileCheck').text('잘못된입력방식입니다');
+                    $('#mobileCheck').css('color','red');
+                }
+            })
 
     </script>
 

@@ -27,7 +27,8 @@
     <img src="${pageContext.request.contextPath}/upload/${member.memberFileName}"
          alt="" height="100" width="100"><br /><br />
    <button class="btn btn-primary" onclick="memberUpdate()">수정</button>
-    <a href="/" class="btn btn-primary stretched-link"  >돌아가기</a>
+    <button class="btn btn-primary" onclick="back()">인덱스로 돌아가기</button>
+
 
     </table>
 
@@ -40,6 +41,9 @@
 <script>
     const memberUpdate = () => {
       location.href="/member/passwordCheck?id=${member.id}";
+    }
+    const back = () => {
+      location.href="/";
     }
 </script>
 </html>

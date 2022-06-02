@@ -24,7 +24,14 @@
 </body>
 <script>
     const memberUpdate = () => {
-      location.href="member/update";
+        const  passwordConfirm = document.getElementById("passwordConfirm").value;
+        const passwordDB= '${memberUpdate.memberPassword}';
+        if(passwordConfirm == passwordDB){
+            updateForm.submit();
+        }else{
+            alert("비밀번호 불일치");
+
+        }
     }
 </script>
 </html>

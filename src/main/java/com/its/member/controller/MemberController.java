@@ -79,7 +79,7 @@ public class MemberController {
     public String findAll(Model model) {
         List<MemberDTO> memberDTOList = memberService.findAll();
         model.addAttribute("memberList", memberDTOList);
-        return "memberPages/admin";
+        return "memberPages/findAll";
     }
 
     //회원 삭제
@@ -121,5 +121,9 @@ public class MemberController {
         memberService.update(memberDTO);
         return  "redirect:/member/detail?id="+memberDTO.getId();
     }
+
+    @GetMapping("/admin")
+    public  String adminForm(){return "memberPages/admin";}
+
 }
 

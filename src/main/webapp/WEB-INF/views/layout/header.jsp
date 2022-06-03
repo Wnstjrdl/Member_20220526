@@ -21,12 +21,12 @@
                <li><a href="/board/save"   class="nav-link px-2 text-primary">글쓰기</a> </li>
                <li><a href="/member/logout"  class="nav-link px-2 text-white">로그아웃</a> </li>
                <c:if test="${sessionScope.loginMemberId eq 'admin'}">
-                   <a href="/member/findAll" class="nav-link px2 text-primary">관리자페이지로이동</a>
+                   <a href="/member/admin" class="nav-link px2 text-primary">관리자페이지로이동</a>
 
                </c:if>
 
              <c:if test="${loginMemberId != null }">
-                 <td><a href="/member/detail?id=${loginId}" class="nav-link px2 text-primary">조회</a></td>
+                 <td><a href="/member/detail?id=${loginId}" class="nav-link px2 text-primary">마이페이지로이동</a></td>
                </c:if>
 
            </ul>

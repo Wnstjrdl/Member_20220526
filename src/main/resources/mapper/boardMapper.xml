@@ -7,15 +7,16 @@
     <insert id="save" parameterType="board">
         insert into board_table(boardTitle,boardWriter,boardContents,boardCreatedDate,boardFileName)
         values (#{boardTitle},#{boardWriter},#{boardContents},now(),#{boardFileName}) </insert>
-    <select parameterType="java.util.HashMap" id="pagingList" resultType="board">select * from board_table order by id desc limit #{start}, #{limit} </select>
+    <select parameterType="java.util.HashMap" id="pagingList" resultType="board">select * from board_table order by boardHits desc limit #{start}, #{limit}  </select>
     <select id="count" resultType="int">select count(id) from board_table </select>
-    <select parameterType="Long" id="findById" resultType="board">select * from board_table where id=#{id} </select>
+    <select parameterType="Long" id="findById" resultType="board">select * from board_table  where id=#{id} </select>
     <delete  parameterType="Long"   id="delete" >delete  from board_table where id=#{id} </delete>
     <update parameterType="board" id="update">update board_table set boardTitle=#{boardTitle}, boardContents=#{boardContents} where id=#{id} </update>
     <select id="search" parameterType="java.util.HashMap" resultType="board">
         select *from board_table where ${type}
                                            like concat('%',#{q},'%') order by id desc;
     </select>
+    <update id="updateHits" parameterType="Long">update board_table    set boardHits=boardHits+1   where id=#{id} </update>
 
 </mapper>
 

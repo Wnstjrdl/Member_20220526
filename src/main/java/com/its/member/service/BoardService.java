@@ -62,7 +62,9 @@ private BoardRepository boardRepository;
     }
 
 
-    public BoardDTO findById(Long id) {return boardRepository.findById(id);
+    public BoardDTO findById(Long id) {
+        boardRepository.updateHits(id);
+        return boardRepository.findById(id);
     }
 
 

@@ -45,4 +45,9 @@ public class BoardRepository {
 
     public List<BoardDTO> search(Map<String, String> searchParam) {
       return sql.selectList("Board.search", searchParam);}
+
+
+    public void updateHits(Long id) {
+        sql.update("Board.updateHits", id);
+    }
 }

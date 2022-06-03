@@ -26,12 +26,11 @@
     조회수:${board.boardHits}<br/>
     작성시간:${board.boardCreatedDate}<br/>
     <img src="${pageContext.request.contextPath}/upload/${board.boardFileName}"
-         alt="" height="100" width="100"><br /><br />
-
+     alt="" height="100" width="100"><br /><br />
     <div class="container mt-5">
         <div id="comment-write" class="input-group mb-3">
             <div class="form-floating">
-                <input type="text" id="commentWriter" class="form-control" placeholder="작성자">
+                <input type="text" id="commentWriter" class="form-control" value="${loginMemberId}"  placeholder="작성자" readonly>
                 <label for="commentWriter">작성자</label>
             </div>
             <button id="comment-write-btn" class="btn btn-primary">댓글작성</button>
